@@ -1,9 +1,9 @@
-Para rodar:
-     1. Abra o terminal do seu sistema
-     2. Clone o projeto                                                         - git clone 
-     3. Entre na pasta do projeto                                               - cd <pasta que foi clonado o projeto (geralmente TrabalhoLDS)>
-     4. Instale as depedências                                                  - componser install
-     5. Com o seu servidor apache ligado (XAMPP, NGINX, ETC) rode o servidor    - php artisan serve    
+Para rodar:<br/>
+     1. Abra o terminal do seu sistema<br/>
+     2. Clone o projeto                                                         - git clone <br/>
+     3. Entre na pasta do projeto                                               - cd <pasta que foi clonado o projeto (geralmente TrabalhoLDS)><br/>
+     4. Instale as depedências                                                  - componser install<br/>
+     5. Com o seu servidor apache ligado (XAMPP, NGINX, ETC) rode o servidor    - php artisan serve<br/>
 
 <p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
 
