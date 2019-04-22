@@ -1,9 +1,6 @@
-<<<<<<< HEAD
 #Trabalho de LDS
 <br/>
 
-=======
->>>>>>> 76d1257c01673285134d6cc5e000bfae1c7fc73b
 Para rodar:<br/>
      1. Abra o terminal do seu sistema<br/>
      2. Clone o projeto                                                         - git clone <br/>
