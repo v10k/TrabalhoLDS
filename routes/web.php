@@ -12,7 +12,11 @@
 */
 
 //Parte site geral
-Route::get('/',         ['as' => 'site.index', 'uses' => 'HomeController@index']);
+Route::get('/',         ['as' => ' 
+
+ 
+ 
+', 'uses' => 'HomeController@index']);
 Route::get('/login',    ['as' => 'site.login', 'uses' => 'HomeController@login']);
 
 
