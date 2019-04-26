@@ -1,22 +1,7 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
 //Parte site geral
-Route::get('/',         ['as' => ' 
-
- 
- 
-', 'uses' => 'HomeController@index']);
+Route::get('/',         ['as' => 'site.index', 'uses' => 'HomeController@index']);
 Route::get('/login',    ['as' => 'site.login', 'uses' => 'HomeController@login']);
 
 
@@ -24,15 +9,29 @@ Route::get('/login',    ['as' => 'site.login', 'uses' => 'HomeController@login']
 Route::get('/adm',      ['as' => 'adm.index', 'uses' => 'AdmController@index']);
 
 //Espacos
-Route::get('/adm/espacos/formulario',   ['as' => 'adm.formEspaco', 'uses' => 'AdmController@formEspaco']);
-Route::get('/adm/espacos/adicionar',    ['as' => 'adm.adicionaEspaco', 'uses' => 'AdmController@adicionaEspaco']);
-Route::get('/adm/espacos/atualizar',    ['as' => 'adm.atualizaEspaco', 'uses' => 'AdmController@atualizarEspaco']);
-Route::get('/adm/espacos/listar',       ['as' => 'adm.listaEspaco', 'uses' => 'AdmController@listaEspaco']);
-Route::get('/adm/espacos/deletar',      ['as' => 'adm.deletaEspaco', 'uses' => 'AdmController@deletaEspaco']);
+Route::get('/adm/espacos/formulario',       ['as' => 'adm.formEspaco', 'uses'       => 'AdmEspacoController@formulario']);
+Route::get('/adm/espacos/adicionar',        ['as' => 'adm.adicionaEspaco', 'uses'   => 'AdmEspacoController@adicionar']);
+Route::get('/adm/espacos/atualizar',        ['as' => 'adm.atualizaEspaco', 'uses'   => 'AdmEspacoController@atualizar']);
+Route::get('/adm/espacos/listar',           ['as' => 'adm.listaEspaco', 'uses'      => 'AdmEspacoController@listar']);
+Route::get('/adm/espacos/deletar',          ['as' => 'adm.deletaEspaco', 'uses'     => 'AdmEspacoController@deletar']);
 
 //Professores
-Route::get('/adm/professores/formulario',   ['as' => 'adm.formProfessor', 'uses' => 'AdmController@formProfessor']);
-Route::get('/adm/professores/adicionar',    ['as' => 'adm.adicionaProfessor', 'uses' => 'AdmController@adicionaProfessor']);
-Route::get('/adm/professores/atualizar',    ['as' => 'adm.atualizaProfessor', 'uses' => 'AdmController@atualizarProfessor']);
-Route::get('/adm/professores/listar',       ['as' => 'adm.listaProfessor', 'uses' => 'AdmController@listaProfessor']);
-Route::get('/adm/professores/deletar',      ['as' => 'adm.deletaProfessor', 'uses' => 'AdmController@deletaProfessor']);
+Route::get('/adm/professores/formulario',   ['as' => 'adm.formProfessor', 'uses'        => 'AdmProfessorController@formulario']);
+Route::get('/adm/professores/adicionar',    ['as' => 'adm.adicionaProfessor', 'uses'    => 'AdmProfessorController@adicionar']);
+Route::get('/adm/professores/atualizar',    ['as' => 'adm.atualizaProfessor', 'uses'    => 'AdmProfessorController@atualizar']);
+Route::get('/adm/professores/listar',       ['as' => 'adm.listaProfessor', 'uses'       => 'AdmProfessorController@listar']);
+Route::get('/adm/professores/deletar',      ['as' => 'adm.deletaProfessor', 'uses'      => 'AdmProfessorController@deletar']);
+
+//Servidores
+Route::get('/adm/servidores/formulario',    ['as' => 'adm.formServidor', 'uses'      => 'AdmServidorController@formulario']);
+Route::get('/adm/servidores/adicionar',     ['as' => 'adm.adicionaServidor', 'uses'  => 'AdmServidorController@adicionar']);
+Route::get('/adm/servidores/atualizar',     ['as' => 'adm.atualizaServidor', 'uses'  => 'AdmServidorController@atualizar']);
+Route::get('/adm/servidores/listar',        ['as' => 'adm.listaServidor', 'uses'     => 'AdmServidorController@listar']);
+Route::get('/adm/servidores/deletar',       ['as' => 'adm.deletaServidor', 'uses'    => 'AdmServidorController@deletar']);
+
+//Disciplina
+Route::get('/adm/disciplinas/formulario',   ['as' => 'adm.formDisciplina', 'uses'       => 'AdmDisciplinaController@formulario']);
+Route::get('/adm/disciplinas/adicionar',    ['as' => 'adm.adicionaDisciplina', 'uses'   => 'AdmDisciplinaController@adicionar']);
+Route::get('/adm/disciplinas/atualizar',    ['as' => 'adm.atualizaDisciplina', 'uses'   => 'AdmDisciplinaController@atualizar']);
+Route::get('/adm/disciplinas/listar',       ['as' => 'adm.listaDisciplina', 'uses'      => 'AdmDisciplinaController@listar']);
+Route::get('/adm/disciplinas/deletar',      ['as' => 'adm.deletaDisciplina', 'uses'     => 'AdmDisciplinaController@deletar']);
