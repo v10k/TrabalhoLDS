@@ -9,25 +9,29 @@ Route::get('/login',    ['as' => 'site.login', 'uses' => 'HomeController@login']
 Route::get('/adm',      ['as' => 'adm.index', 'uses' => 'AdmController@index']);
 
 //Espacos
+Route::get('/adm/espacos/formularioAdicionar',          ['as' => 'adm.formAddEspaco', 'uses'    => 'AdmEspacoController@formularioAdicionar']);
+Route::get('/adm/espacos/formularioAtualizar/{id}',     ['as' => 'adm.formAttEspaco', 'uses'    => 'AdmEspacoController@formularioAtualizar']);
 Route::get('/adm/espacos/formulario',                   ['as' => 'adm.formEspaco', 'uses'       => 'AdmEspacoController@formulario']);
-Route::get('/adm/espacos/adicionar',                    ['as' => 'adm.adicionaEspaco', 'uses'   => 'AdmEspacoController@adicionar']);
-Route::get('/adm/espacos/atualizar',                    ['as' => 'adm.atualizaEspaco', 'uses'   => 'AdmEspacoController@atualizar']);
+Route::post('/adm/espacos/adicionar',                   ['as' => 'adm.adicionaEspaco', 'uses'   => 'AdmEspacoController@adicionar']);
+Route::post('/adm/espacos/atualizar/{id}',              ['as' => 'adm.atualizaEspaco', 'uses'   => 'AdmEspacoController@atualizar']);
 Route::get('/adm/espacos/listar',                       ['as' => 'adm.listaEspaco', 'uses'      => 'AdmEspacoController@listar']);
-Route::get('/adm/espacos/deletar',                      ['as' => 'adm.deletaEspaco', 'uses'     => 'AdmEspacoController@deletar']);
+Route::get('/adm/espacos/deletar/{id}',                 ['as' => 'adm.deletaEspaco', 'uses'     => 'AdmEspacoController@deletar']);
 
 //Professores
-Route::get('/adm/professores/formulario',               ['as' => 'adm.formProfessor', 'uses'        => 'AdmProfessorController@formulario']);
-Route::get('/adm/professores/adicionar',                ['as' => 'adm.adicionaProfessor', 'uses'    => 'AdmProfessorController@adicionar']);
-Route::get('/adm/professores/atualizar',                ['as' => 'adm.atualizaProfessor', 'uses'    => 'AdmProfessorController@atualizar']);
+Route::get('/adm/professores/formularioAdicionar',      ['as' => 'adm.formAddProfessor', 'uses'     => 'AdmProfessorController@formularioAdicionar']);
+Route::get('/adm/professores/formularioAtualizar/{id}', ['as' => 'adm.formAttProfessor', 'uses'     => 'AdmProfessorController@formularioAtualizar']);
+Route::post('/adm/professores/adicionar',               ['as' => 'adm.adicionaProfessor', 'uses'    => 'AdmProfessorController@adicionar']);
+Route::post('/adm/professores/atualizar/{id}',          ['as' => 'adm.atualizaProfessor', 'uses'    => 'AdmProfessorController@atualizar']);
 Route::get('/adm/professores/listar',                   ['as' => 'adm.listaProfessor', 'uses'       => 'AdmProfessorController@listar']);
-Route::get('/adm/professores/deletar',                  ['as' => 'adm.deletaProfessor', 'uses'      => 'AdmProfessorController@deletar']);
+Route::get('/adm/professores/deletar/{id}',             ['as' => 'adm.deletaProfessor', 'uses'      => 'AdmProfessorController@deletar']);
 
 //Servidores
-Route::get('/adm/servidores/formulario',                ['as' => 'adm.formServidor', 'uses'      => 'AdmServidorController@formulario']);
-Route::get('/adm/servidores/adicionar',                 ['as' => 'adm.adicionaServidor', 'uses'  => 'AdmServidorController@adicionar']);
-Route::get('/adm/servidores/atualizar',                 ['as' => 'adm.atualizaServidor', 'uses'  => 'AdmServidorController@atualizar']);
+Route::get('/adm/servidores/formularioAdicionar',       ['as' => 'adm.formAddServidor', 'uses'   => 'AdmServidorController@formularioAdicionar']);
+Route::get('/adm/servidores/formularioAtualizar/{id}',  ['as' => 'adm.formAttServidor', 'uses'   => 'AdmServidorController@formularioAtualizar']);
+Route::post('/adm/servidores/adicionar',                ['as' => 'adm.adicionaServidor', 'uses'  => 'AdmServidorController@adicionar']);
+Route::post('/adm/servidores/atualizar/{id}',           ['as' => 'adm.atualizaServidor', 'uses'  => 'AdmServidorController@atualizar']);
 Route::get('/adm/servidores/listar',                    ['as' => 'adm.listaServidor', 'uses'     => 'AdmServidorController@listar']);
-Route::get('/adm/servidores/deletar',                   ['as' => 'adm.deletaServidor', 'uses'    => 'AdmServidorController@deletar']);
+Route::get('/adm/servidores/deletar/{id}',              ['as' => 'adm.deletaServidor', 'uses'    => 'AdmServidorController@deletar']);
 
 //Disciplina
 Route::get('/adm/disciplinas/formularioAdicionar',      ['as' => 'adm.formAddDisciplina', 'uses'    => 'AdmDisciplinaController@formularioAdicionar']);

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateDisciplinasTable extends Migration
+class CreateEspacosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CreateDisciplinasTable extends Migration
      */
     public function up()
     {
-        Schema::create('disciplinas', function (Blueprint $table) {
+        Schema::create('espacos', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('nome_disciplina');
-            $table->string('curso_disciplina');
-            $table->decimal('carga_horaria', 6, 2);
+            $table->string('nome_espaco');
+            $table->integer('capacidade_espaco');
+            $table->string('descricao_espaco');
             $table->timestamps();
         });
     }
@@ -29,6 +29,6 @@ class CreateDisciplinasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('disciplinas');
+        Schema::dropIfExists('espacos');
     }
 }

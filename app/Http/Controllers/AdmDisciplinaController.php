@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Disciplina;
 
 class AdmDisciplinaController extends Controller
 {
@@ -17,20 +18,25 @@ class AdmDisciplinaController extends Controller
         return view('adm.disciplinas.formulario', compact('caminho', 'disciplinas'));
     }
 
-    public function adicionar() {
-
+    public function adicionar(Request $req) {
+        $dados = $req->all();
+        Disciplina::create($dados);
+        return redirect()->route('adm.listaDisciplina');
     }
 
     public function atualizar(Request $req, $id) {
-        $disciplinas = find($id)->update();
+        $dados = $req->all();
+        Disciplina::find($id)->update($dados);
         return redirect()->route('adm.listaDisciplina');
     }
 
     public function listar() {
-
+        $registros = Disciplina::all();
+        return view('adm.disciplinas.listar', compact('registros'));
     }
 
-    public function deletar() {
-        
+    public function deletar($id) {
+        Disciplina::find($id)->delete();
+        return redirect()->route('adm.listaDisciplina');
     }
 }

@@ -4,10 +4,11 @@
 
 @section('conteudo')
     <h3> Servidores </h3>
-    <form method="POST" action="">
-    <input type="text" placeholder="Prontuário do servidor"/><br/>
-    <input type="text" placeholder="Nome do servidor"/><br/> 
-    <input type="email" placeholder="Email do servidor"/><br/> <br/>
+    <form method="POST" action="{{ $caminho }}">
+    {{ csrf_field() }}
+    <input name="prontuario_servidor" type="text" placeholder="Prontuário do servidor" value="{{ isset($servidores->prontuario_servidor)  ? $servidores->prontuario_servidor  : '' }}"/><br/>
+    <input name="nome_servidor" type="text" placeholder="Nome do servidor" value="{{ isset($servidores->nome_servidor)  ? $servidores->nome_servidor  : '' }}"/><br/> 
+    <input name="email_servidor" type="email" placeholder="Email do servidor" value="{{ isset($servidores->email_servidor)  ? $servidores->email_servidor  : '' }}" /><br/> <br/>
     <button type="submit" value="salvar"> Salvar </button>
     </form>
 @endsection
