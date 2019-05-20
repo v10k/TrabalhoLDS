@@ -1,6 +1,6 @@
 @extends('layout.site')
 
-@section('titulo', 'Formulario servidores')
+@section('titulo', 'Login')
 
 @section('conteudo')
 <link href="{{asset('css/usuario.css')}}" rel="stylesheet" />
@@ -9,31 +9,14 @@
         <div>
             <div class="panel panel-dark panel-flat">
                 <div class="panel-body">
-                    <p class="text-center pv">Servidor</p>
+                    <p class="text-center pv">Login</p>
                     <form method="POST" action="{{ $caminho }}">
                         {{ csrf_field() }}
-                        <div class="form-group has-feedback">
-                            <p class="title"> Nome do usuário:</p>
-                            <input id="nome" name="nome" autofocus type="text" placeholder="Nome" required
-                                value="{{ isset($servidores->nome)  ? $servidores->nome  : '' }}"
-                                class="form-control {{ $errors->has('nome') ? 'is-invalid' : '' }}">
-                            @if($errors->has('nome'))
-                                <div class="invalid-feedback">
-                                    {{ $errors->first('nome') }}
-                                </div>
-                            @endif
+                        @if(isset($message))
+                        <div class="alert alert-danger" role="alert">
+                            {{ $message }}
                         </div>
-                        <div class="form-group has-feedback">
-                            <p class="title"> E-mail acadêmico:</p>
-                            <input id="email" name="email" type="email" placeholder="usuario@ifsp.edu.br" required
-                                value="{{ isset($servidores->email)  ? $servidores->email  : '' }}"
-                                class="form-control {{ $errors->has('email') ? 'is-invalid' : '' }}">
-                                @if($errors->has('email'))
-                                    <div class="invalid-feedback">
-                                        {{ $errors->first('email') }}
-                                    </div>
-                                @endif
-                        </div>
+                        @endif
                         <div class="form-group has-feedback">
                             <p class="title"> Prontuário:</p>
                             <input id="gu" name="prontuario" type="text" placeholder="GU0000000" required
@@ -56,8 +39,7 @@
                                 @endif
                             </div>
                         </div>
-                        <input type="hidden" id="tipo_usuario" name="tipo" value="servidor" />
-                        <button type="submit" class="btn btn-block btn-primary mt-lg btn-lg">Cadastrar</button>
+                        <button type="submit" class="btn btn-block btn-primary mt-lg btn-lg">Confirmar</button>
                     </form>
                 </div>
             </div>
