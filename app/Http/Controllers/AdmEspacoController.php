@@ -7,13 +7,6 @@ use App\Espaco;
 
 class AdmEspacoController extends Controller
 {
-    public function checkLoggedIn() {
-        if (!AdmServidorController::isLogged()) {
-            $caminho = route('adm.verificarLogin');
-            return view('adm.servidores.login', compact('caminho'));
-        }
-    }
-
     public function validations(Request $req)
     {
         $rules = [
@@ -34,16 +27,12 @@ class AdmEspacoController extends Controller
 
     public function addForm()
     {
-        $this->checkLoggedIn();
-
         $caminho = route('adm.adicionaEspaco');
         return view('adm.espacos.formulario', compact('caminho'));
     }
 
     public function updateForm($id)
     {
-        $this->checkLoggedIn();
-
         $espacos = Espaco::find($id);
         $caminho = route('adm.atualizaEspaco', $id);
         return view('adm.espacos.formulario', compact('caminho', 'espacos'));
@@ -71,16 +60,12 @@ class AdmEspacoController extends Controller
 
     public function selectAll()
     {
-        $this->checkLoggedIn();
-
         $registros = Espaco::all();
         return view('adm.espacos.listar', compact('registros'));
     }
 
     public function delete($id)
     {
-        $this->checkLoggedIn();
-
         Espaco::find($id)->delete();
         return redirect()->route('adm.listaEspaco');
     }

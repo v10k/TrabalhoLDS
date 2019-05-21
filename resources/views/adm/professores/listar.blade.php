@@ -34,9 +34,9 @@
                     @foreach($registros as $registro)
                     <tr scope="row">
                         <td>{{ $registro->id }}</td>
-                        <td>{{ $registro->prontuario }}</td>
-                        <td>{{ $registro->nome }}</td>
-                        <td>{{ $registro->email }}</td>
+                        <td>{{ $registro->prontuario_professor }}</td>
+                        <td>{{ $registro->nome_professor }}</td>
+                        <td>{{ $registro->email_professor }}</td>
                         <td><a class="btn deep-orange" href="{{route('adm.formAttProfessor', $registro->id)}}">Editar</a></td>
                         <td><a class="btn red" href="{{route('adm.deletaProfessor', $registro->id)}}">Deletar</a></td>
                     </tr>

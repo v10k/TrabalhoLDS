@@ -33,6 +33,10 @@ class AdmProfessorController extends Controller
         $req->validate($rules, $messages);
     }
 
+    public function index() {
+        return view ('adm.professores.index');
+    }
+
     public function addForm()
     {
         $caminho = route('adm.adicionaProfessor');
@@ -75,5 +79,13 @@ class AdmProfessorController extends Controller
     {
         User::find($id)->delete();
         return redirect()->route('adm.listaProfessor');
+    }
+
+    public function listarAprovacoes() {
+        return view ('adm.professores.listarAprovacoes');
+    }
+
+    public function solicitaFormulario() {
+        return view ('adm.professores.solicitaFormulario');
     }
 }

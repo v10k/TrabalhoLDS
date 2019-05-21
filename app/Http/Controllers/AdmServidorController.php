@@ -31,6 +31,10 @@ class AdmServidorController extends Controller
         $req->validate($rules, $messages);
     }
 
+    public function index() {
+        return view('adm.servidores.index');
+    }
+
     public function addForm() {
         $caminho = route('adm.adicionaServidor');
         return view('adm.servidores.formulario', compact('caminho'));
@@ -70,7 +74,11 @@ class AdmServidorController extends Controller
         return redirect()->route('adm.listaServidor');
     }
 
-    public function index() {
-        //return view('adm.servidores.index');
+    public function historicoSolitacoes() {
+        return view('adm.servidores.historicoSolicitacoes');
+    }
+
+    public function listarSolicitacoes() {
+        return view('adm.servidores.listarSolicitacoes');
     }
 }
