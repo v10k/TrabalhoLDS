@@ -13,11 +13,17 @@ class HomeController extends Controller
     }
 
     public function login() {
+        if ($this->isLogged()) {
+            return view('index');
+        }
         $caminho = route('site.verificarLogin');
         return view('login', compact('caminho'));
     }
 
     public function signIn(Request $req) {
+        if ($this->isLogged()) {
+            return view('index');
+        }
         $req->validate([
             'prontuario' => 'required',
             'senha' => 'required'
@@ -51,7 +57,13 @@ class HomeController extends Controller
         } else {
             return 'adm.listaProfessor';
         }
+    }
 
+    private function isLogged() {
+        if (Auth::check()) {
+            return true;
+        }
+        return false;
     }
     
 }

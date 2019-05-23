@@ -3,12 +3,12 @@
 @section('titulo', 'Formulario disciplinas')
 
 @section('conteudo')
-    <h3> Disciplinas </h3>
-    <form method="POST" action="">
-    {{ csrf_field() }}
-    <input name="nome_disciplina" type="text" placeholder="Nome da disciplina" value="{{ isset($disciplinas->nome_disciplina)  ? $disciplinas->nome_disciplina  : '' }}" /><br/>
-    <input name="curso_disciplina" type="text" placeholder="Curso que pertence" value="{{ isset($disciplinas->curso_disciplina) ? $disciplinas->curso_disciplina : '' }}" /><br/>   <!-- MUDAR PARA SELECT OU ALGO PARECIDO -->
-    <input name="carga_horaria" type="number" placeholder="Carga horária" value="{{ isset($disciplinas->carga_horaria) ? $disciplinas->carga_horaria : '' }}" /><br/><br/> <!-- TALVEZ UM SELECT COM HORÁRIOS DEFINIDOS... -->
-    <button type="submit" value="salvar"> Salvar </button>
-    </form>
+<link href="{{asset('css/usuario.css')}}" rel="stylesheet" />
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <h3> HOME PAGE </h3>
+    @if (session('erro'))
+        <div class="alert alert-danger" role="alert">
+            <h2> Você não tem acesso a essa página ! </h2>
+        </div>
+    @endif
 @endsection

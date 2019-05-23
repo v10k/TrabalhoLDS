@@ -12,6 +12,8 @@
                 <p class="text-center pv">Cadastro de Professores</p>
                 <form method="POST" action="{{ $caminho }}">
                     {{ csrf_field() }}
+
+                    <input type="hidden" name="tipo" value="professor"/>
                     <div class="form-group has-feedback">
                         <p class="title"> Nome do professor:</p>
                         <input id="nome" name="nome_professor" autofocus type="text" placeholder="Nome" required
@@ -44,6 +46,18 @@
                                     {{ $errors->first('email_professor') }}
                                 </div>
                             @endif
+                    <div class="form-group has-feedback">
+                    <p class="title">Senha:</p>
+                    <input id="senha" name="senha" type="password" placeholder="Senha" required
+                        value="{{ isset($professores->senha)  ? $professores->senha  : '' }}"
+                        class="form-control {{ $errors->has('senha') ? 'is-invalid' : '' }}">
+                        @if($errors->has('senha'))
+                            <div class="invalid-feedback">
+                                {{ $errors->first('senha') }}
+                            </div>
+                        @endif
+                    </div>
+
                     </div>
                     <button type="submit" class="btn btn-block btn-primary mt-lg btn-lg">Cadastrar</button>
                 </form>

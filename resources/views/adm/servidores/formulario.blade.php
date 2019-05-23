@@ -12,6 +12,7 @@
                     <p class="text-center pv">Cadastro de Servidor</p>
                     <form method="POST" action="{{ $caminho }}">
                         {{ csrf_field() }}
+                        <input type="hidden" name="tipo" value="servidor"/>
                         <div class="form-group has-feedback">
                             <p class="title"> Nome do usuário:</p>
                             <input id="nome" name="nome_servidor" autofocus type="text" placeholder="Nome" required
