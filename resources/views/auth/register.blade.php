@@ -10,7 +10,7 @@
             <div class="panel panel-dark panel-flat">
                 <div class="panel-body">
                     <p class="text-center pv">Cadastro de Servidor</p>
-                    <form method="POST" action="{{ $caminho }}">
+                    <form method="POST" action="{{ route('register') }}">
                         @csrf
                         <input type="hidden" name="tipo" value="servidor"/>
                         <div class="form-group has-feedback">
@@ -46,7 +46,7 @@
                                     </div>
                                 @endif
                             <div class="form-group has-feedback">
-                            <p class="title">Senha:</p>
+                            <p class="title">password:</p>
                             <input id="password" name="password" type="password" placeholder="Senha" required
                                 value="{{ isset($servidores->password)  ? $servidores->password  : '' }}"
                                 class="form-control {{ $errors->has('password') ? 'is-invalid' : '' }}">

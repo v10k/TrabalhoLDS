@@ -26,7 +26,7 @@ $disciplinas_texto = array
                 <div class="panel-body">
                 <p class="text-center pv">Cadastro de Disciplinas</p>
                 <form method="POST" action="{{ $caminho }}">
-                        {{ csrf_field() }}
+                        @csrf
                         <div class="form-group has-feedback">
                             <p class="title"> Nome da disciplina:</p>
                             <input id="nome" name="nome_disciplina" autofocus type="text" placeholder="Nome da disciplina" required

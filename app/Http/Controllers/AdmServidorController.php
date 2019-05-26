@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Auth;
 use App\User;
+use Illuminate\Support\Facades\Hash;
 
 class AdmServidorController extends Controller
 {
@@ -13,7 +14,7 @@ class AdmServidorController extends Controller
             "nome" => "required|min:3|max:200",
             "email" => "required|email|unique:users",
             "prontuario" => "required|min:3|max:20",
-            "senha" => "required|min:3|max:20",
+            "password" => "required|min:3|max:20",
         ];
 
         $messages = [
@@ -24,8 +25,8 @@ class AdmServidorController extends Controller
             "nome.max" => "Maxmo de caracteres é 200",
             "prontuario.min" => "Minimo de caracteres é 3",
             "prontuario.min" => "Maximo de caracteres permitidos é 20",
-            "senha.min" => "Minimo de caracteres é 3",
-            "senha.min" => "Maximo de caracteres permitidos é 20"
+            "password.min" => "Minimo de caracteres é 3",
+            "password.min" => "Maximo de caracteres permitidos é 20"
         ];
 
         $req->validate($rules, $messages);
@@ -48,19 +49,28 @@ class AdmServidorController extends Controller
     }
 
     public function insert(Request $req) {
+        // User::sendWelcomeEmail($dados);
+        //$pw = User::generatePassword();
         $this->validations($req);
         $dados = $req->all();
-        User::create($dados);
-
+        $this->createUser($dados);
         return redirect()->route('adm.listaServidor');
+    }
+
+    private function createUser($data) {
+        return User::create([
+            'nome' => $data['nome'],
+            'email' => $data['email'],
+            'prontuario' => $data['prontuario'],
+            'tipo' => $data['tipo'],
+            'password' => Hash::make($data['password']),
+        ]);
     }
 
     public function update(Request $req, $id) {
         $this->validations($req);
-
         $dados = $req->all();
         User::find($id)->update($dados);
-
         return redirect()->route('adm.listaServidor');
     }
 

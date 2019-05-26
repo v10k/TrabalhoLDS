@@ -11,49 +11,48 @@
             <div class="panel-body">
                 <p class="text-center pv">Cadastro de Professores</p>
                 <form method="POST" action="{{ $caminho }}">
-                    {{ csrf_field() }}
-
+                    @csrf
                     <input type="hidden" name="tipo" value="professor"/>
                     <div class="form-group has-feedback">
                         <p class="title"> Nome do professor:</p>
-                        <input id="nome" name="nome_professor" autofocus type="text" placeholder="Nome" required
-                            value="{{ isset($professores->nome_professor)  ? $professores->nome_professor  : '' }}"
-                            class="form-control {{ $errors->has('nome_professor') ? 'is-invalid' : '' }}">
-                        @if($errors->has('nome_professor'))
+                        <input id="nome" name="nome" autofocus type="text" placeholder="Nome" required
+                            value="{{ isset($professores->nome)  ? $professores->nome  : '' }}"
+                            class="form-control {{ $errors->has('nome') ? 'is-invalid' : '' }}">
+                        @if($errors->has('nome'))
                             <div class="invalid-feedback">
-                                {{ $errors->first('nome_professor') }}
+                                {{ $errors->first('nome') }}
                             </div>
                         @endif
                     </div>
                     <div class="form-group has-feedback">
                         <p class="title"> Prontuário:</p>
-                        <input id="gu" name="prontuario_professor" type="text" placeholder="GU0000000" required
-                            value="{{ isset($professores->prontuario_professor)  ? $professores->prontuario_professor  : '' }}"
-                            class="form-control {{ $errors->has('prontuario_professor') ? 'is-invalid' : '' }}">
-                            @if($errors->has('prontuario_professor'))
+                        <input id="gu" name="prontuario" type="text" placeholder="GU0000000" required
+                            value="{{ isset($professores->prontuario)  ? $professores->prontuario  : '' }}"
+                            class="form-control {{ $errors->has('prontuario') ? 'is-invalid' : '' }}">
+                            @if($errors->has('prontuario'))
                                 <div class="invalid-feedback">
-                                    {{ $errors->first('prontuario_professor') }}
+                                    {{ $errors->first('prontuario') }}
                                 </div>
                             @endif
                     </div>
                     <div class="form-group has-feedback">
                         <p class="title"> E-mail acadêmico:</p>
-                        <input id="email" name="email_professor" type="email" placeholder="usuario@ifsp.edu.br" required
-                            value="{{ isset($professores->email_professor)  ? $professores->email_professor  : '' }}"
-                            class="form-control {{ $errors->has('email_professor') ? 'is-invalid' : '' }}">
-                            @if($errors->has('email_professor'))
+                        <input id="email" name="email" type="email" placeholder="usuario@ifsp.edu.br" required
+                            value="{{ isset($professores->email)  ? $professores->email  : '' }}"
+                            class="form-control {{ $errors->has('email') ? 'is-invalid' : '' }}">
+                            @if($errors->has('email'))
                                 <div class="invalid-feedback">
-                                    {{ $errors->first('email_professor') }}
+                                    {{ $errors->first('email') }}
                                 </div>
                             @endif
                     <div class="form-group has-feedback">
                     <p class="title">Senha:</p>
-                    <input id="senha" name="senha" type="password" placeholder="Senha" required
-                        value="{{ isset($professores->senha)  ? $professores->senha  : '' }}"
-                        class="form-control {{ $errors->has('senha') ? 'is-invalid' : '' }}">
-                        @if($errors->has('senha'))
+                    <input id="password" name="password" type="password" placeholder="password" required
+                        value="{{ isset($professores->password)  ? $professores->password  : '' }}"
+                        class="form-control {{ $errors->has('password') ? 'is-invalid' : '' }}">
+                        @if($errors->has('password'))
                             <div class="invalid-feedback">
-                                {{ $errors->first('senha') }}
+                                {{ $errors->first('password') }}
                             </div>
                         @endif
                     </div>

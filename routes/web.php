@@ -1,9 +1,9 @@
 <?php
 
 //Parte site geral
-Route::get('/index',                    ['as' => 'site.index',          'uses' => 'HomeController@index']);
-Route::get('/login',                    ['as' => 'site.login',          'uses' => 'HomeController@login']);
-Route::post('/signIn',                  ['as' => 'site.verificarLogin', 'uses' => 'HomeController@signIn']);
+
+Auth::routes();
+Route::get('/home', 'HomeController@index')->name('home');
 
 
 //Verficação
@@ -52,4 +52,5 @@ Route::get('/adm/disciplinas/listar',                   ['as' => 'adm.listaDisci
 Route::get('/adm/disciplinas/deletar/{id}',             ['as' => 'adm.deletaDisciplina', 'uses'     => 'AdmDisciplinaController@delete'])->middleware('checkRoleAdmin');
 
 });
+
 

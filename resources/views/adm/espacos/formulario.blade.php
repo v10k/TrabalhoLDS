@@ -11,7 +11,7 @@
                     <div class="panel-body">
                         <p class="text-center pv">Cadastro de Espaço</p>
                         <form method="POST" action="{{ $caminho }}">
-                            {{ csrf_field() }}
+                            @csrf
                             <div class="form-group has-feedback">
                                 <p class="title"> Nome do espaço:</p>
                                 <input id="nome" name="nome_espaco" autofocus type="text" placeholder="Nome da sala" required
