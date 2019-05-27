@@ -41,10 +41,8 @@ class AdmEspacoController extends Controller
     public function insert(Request $req)
     {
         $this->validations($req);
-
         $dados = $req->all();
         Espaco::create($dados);
-
         return redirect()->route('adm.listaEspaco');
     }
 

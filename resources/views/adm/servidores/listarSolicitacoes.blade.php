@@ -12,7 +12,7 @@
             <div class="tabela">
                 <div class="row">
                     <div class="col-md-10">
-                        <h3 class="text-center">Lista de Salas Solicitadas para aprovação</h3>
+                        <h3 class="text-center">Lista de Salas Solicitadas</h3>
                     </div>
                 </div>
                 
@@ -20,25 +20,32 @@
                     <thead>
                         <tr>
                             <th scope="col">Id</th>
-                            <th scope="col">Sala</th>
+                            <th scope="col">Espaço</th>
+                            <th scope="col">Curso</th>
+                            <th scope="col">Disciplina</th>
                             <th scope="col">Professor</th>
+                            <th scope="col">Semestre</th>
                             <th scope="col">Data</th>
-                            <th scope="col">Hora</th>
-                            <th scope="col">Aprovar</th>
-                            <th scope="col">Reprovar</th>
+                            <th scope="col">Horario inicio</th>
+                            <th scope="col">Horario final</th>
+                            <th scope="col" colspan="2" style="text-align: center;">Status</th>
                         </tr>
                     </thead>
-                    <!-- foreach -->
+                    @foreach($registros as $registro)
                     <tr scope="row">
-                        <td>id</td>
-                        <td>xxx</td>
-                        <td>nome</td>
-                        <td>xxx</td>
-                        <td>xxx</td>
-                        <td><a class="btn btn-warning" href="">Aprovar</a></td>
-                        <td><a class="btn btn-danger" href="">Reprovar</a></td>
+                        <td>{{ $registro->id }}</td>
+                        <td>{{ $registro->id_espaco }}</td>
+                        <td>{{ $registro->id_curso }}</td>
+                        <td>{{ $registro->id_disciplina }}</td>
+                        <td>{{ $registro->id_professor }}</td>
+                        <td>{{ $registro->semestre }}</td>
+                        <td>{{ $registro->data }}</td>
+                        <td>{{ $registro->horario_inicio}}</td>
+                        <td>{{ $registro->horario_final }}</td>
+                        <td><a class="btn btn-warning" href="aprovarSolicitacoes/{{$registro->id}}/aprovado">Aprovar</a></td>
+                        <td><a class="btn btn-danger"  href="aprovarSolicitacoes/{{$registro->id}}/reprovado">Reprovar</a></td>
                     </tr>
-                    <!-- fim foreach -->
+                    @endforeach
                 </table>
             </div>
         </div>

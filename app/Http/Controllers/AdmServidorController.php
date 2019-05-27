@@ -83,12 +83,4 @@ class AdmServidorController extends Controller
         User::find($id)->delete();
         return redirect()->route('adm.listaServidor');
     }
-
-    public function historicoSolitacoes() {
-        return view('adm.servidores.historicoSolicitacoes');
-    }
-
-    public function listarSolicitacoes() {
-        return view('adm.servidores.listarSolicitacoes');
-    }
 }

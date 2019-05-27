@@ -9,27 +9,26 @@ class UsersTableSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
-    {
+    public function run() {
         if(DB::table('users')->get()->count() == 0){
             DB::table('users')->insert([
                 [
                     'prontuario' => 'guxxx',
-                    'nome' => Str::random(10),
+                    'nome' => 'Administrador',
                     'email' => Str::random(10).'@gmail.com',
                     'password' => bcrypt('secret'),
                     'tipo' => 'administrador',
                 ],
                 [
                     'prontuario' => 'gu100',
-                    'nome' => Str::random(10),
+                    'nome' => 'Servidor',
                     'email' => Str::random(10).'@gmail.com',
                     'password' => bcrypt('secret'),
                     'tipo' => 'servidor',
                 ],
                 [
                     'prontuario' => 'gu200',
-                    'nome' => Str::random(10),
+                    'nome' => 'Professor',
                     'email' => Str::random(10).'@gmail.com',
                     'password' => bcrypt('secret'),
                     'tipo' => 'professor',

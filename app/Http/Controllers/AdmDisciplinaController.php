@@ -4,12 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Disciplina;
+use App\Curso;
 
 class AdmDisciplinaController extends Controller
 {
     public function validations(Request $req) {
         $rules = [
-            "curso_disciplina" => "required|min:3|max:50",
+            "id_disciplina" => "required",
             "nome_disciplina" => "required|min:3|max:50",
             "carga_horaria" => "required",
         ];
@@ -17,9 +18,7 @@ class AdmDisciplinaController extends Controller
         $messages = [
             "required" => "Campo obrigatório",
             "nome_disciplina.min" => "O minimo de caracteres é 3.",
-            "nome_disciplina.max" => "O máximo de caracteres é 50.",
-            "curso_disciplina.min" => "O minimo de caracteres é 3.",
-            "curso_disciplina.max" => "O máximo de caracteres é 50."
+            "nome_disciplina.max" => "O máximo de caracteres é 50."
         ];
 
         $req->validate($rules, $messages);
@@ -27,19 +26,22 @@ class AdmDisciplinaController extends Controller
 
     public function addForm() {
         $caminho = route('adm.adicionaDisciplina');
-        return view('adm.disciplinas.formulario', compact('caminho'));
+        $disciplinas = Disciplina::all();
+        $this->formataDadosObjeto($disciplinas);
+        return view('adm.disciplinas.formulario', compact('caminho', 'disciplinas'));
     }
 
     public function updateForm($id) {
-        $disciplinas = Disciplina::find($id);
+        $usuario = Disciplina::find($id);
+        $disciplinas = Disciplina::all();
+        $this->formataDadosObjeto($disciplinas);
         $caminho = route('adm.atualizaDisciplina', $id);
-        return view('adm.disciplinas.formulario', compact('caminho', 'disciplinas'));
+        return view('adm.disciplinas.formulario', compact('caminho', 'disciplinas', 'usuario'));
     }
 
     public function insert(Request $req) {
         $dados = $req->all();
         Disciplina::create($dados);
-
         return redirect()->route('adm.listaDisciplina');
     }
 
@@ -54,11 +56,23 @@ class AdmDisciplinaController extends Controller
 
     public function selectAll() {
         $registros = Disciplina::all();
+        $this->formataDadosObjeto($registros);
         return view('adm.disciplinas.listar', compact('registros'));
     }
 
     public function delete($id) {
         Disciplina::find($id)->delete();
         return redirect()->route('adm.listaDisciplina');
+    }
+
+    private function formataDadosObjeto($registros) {
+        $this->defineNomeCurso($registros);
+    }
+
+    private function defineNomeCurso($registros) {
+       foreach($registros as $registro) {
+        $curso = Curso::find($registro->id);
+        $registro->setattribute('nome_curso', $curso->nome_curso);
+       }
     }
 }

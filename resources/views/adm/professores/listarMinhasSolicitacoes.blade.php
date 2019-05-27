@@ -1,9 +1,8 @@
 @extends('layout.site')
 
-@section('titulo', 'Lista Servidores')
+@section('titulo', 'Lista Professores')
 
 @section('conteudo')
-
 <link href="{{asset('css/app.css')}}" rel="stylesheet" />
 <link href="{{asset('css/lista.css')}}" rel="stylesheet" />
 </head>
@@ -12,10 +11,14 @@
             <div class="tabela">
                 <div class="row">
                     <div class="col-md-10">
-                        <h3 class="text-center">Histórico de aprovações de salas</h3>
+                        <h3 class="text-center">Salas Solicitadas</h3>
+                    </div>
+                    <div class="col-md-2 pull-right">
+                        <form method="get" action="{{ route('adm.solicitaEspaco') }}">
+                            <button type="submit" class="btn btn-light-blue btn-new">Solicitar nova sala</button>
+                        </form> 
                     </div>
                 </div>
-                
                 <table class="table">
                     <thead>
                         <tr>
