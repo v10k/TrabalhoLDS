@@ -34,10 +34,6 @@ class AdmProfessorController extends Controller
         $req->validate($rules, $messages);
     }
 
-    public function index() {
-        return view ('adm.professores.index');
-    }
-
     public function addForm()
     {
         $caminho = route('adm.adicionaProfessor');

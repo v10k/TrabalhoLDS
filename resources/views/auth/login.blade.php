@@ -3,6 +3,7 @@
 @section('titulo', 'Login')
 
 @section('conteudo')
+
 <link href="{{asset('css/usuario.css')}}" rel="stylesheet" />
     </head>
     <body class="fundo">

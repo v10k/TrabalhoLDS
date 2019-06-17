@@ -1,9 +1,9 @@
 @extends('layout.site')
 
-@section('titulo', 'Lista Servidores')
+@section('titulo', 'Lista Solicitações')
 
 @section('conteudo')
-
+@php $count = 0 @endphp
 <link href="{{asset('css/app.css')}}" rel="stylesheet" />
 <link href="{{asset('css/lista.css')}}" rel="stylesheet" />
 </head>
@@ -44,9 +44,13 @@
                         <td>{{ $registro->horario_final }}</td>
                         <td><a class="btn btn-warning" href="aprovarSolicitacoes/{{$registro->id}}/aprovado">Aprovar</a></td>
                         <td><a class="btn btn-danger"  href="aprovarSolicitacoes/{{$registro->id}}/reprovado">Reprovar</a></td>
+                        @php $count++ @endphp
                     </tr>
                     @endforeach
                 </table>
+                @if($count == 0) 
+                <div class="alert alert-primary" role="alert"> Não há solicitações </div>
+                @endif
             </div>
         </div>
 @endsection
