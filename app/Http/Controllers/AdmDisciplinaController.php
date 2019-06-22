@@ -44,7 +44,7 @@ class AdmDisciplinaController extends Controller
     }
 
     public function selectAll() {
-        $registros = Disciplina::all();
+        $registros = Disciplina::all()->sortBy('nome_disciplina');
         $this->formataDadosObjeto($registros);
         return view('adm.disciplinas.listar', compact('registros'));
     }

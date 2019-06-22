@@ -38,6 +38,11 @@ class Validacao extends Controller {
         $req->validate($this->requisitos, $this->mensagens);
     }
 
+    public function validaCurso(Request $req) {
+        $this->requisitosCurso();
+        $req->validate($this->requisitos, $this->mensagens);
+    }
+
     private function requisitosInsereUsuario() {
         $this->requisitos = [
             "nome" => "required|min:3|max:200",
@@ -79,6 +84,14 @@ class Validacao extends Controller {
         ];
     }
 
+    private function requisitosCurso() {
+        $this->requisitos = [
+            "nome_curso" => "required|min:3|max:200",
+            "descricao_curso" => "required",
+            "nivel_curso" => "required",
+        ];
+    }
+
 
 
     private function mensagens() {
@@ -95,7 +108,9 @@ class Validacao extends Controller {
             "nome_disciplina.max" => "O máximo de caracteres é 50.",
             'capacidade_espaco.min' => "É obrigário ter no minimo 1",
             "nome_espaco.min" => "O minimo de caracteres é 3.",
-            "nome_espaco.max" => "O máximo de caracteres é 50."
+            "nome_espaco.max" => "O máximo de caracteres é 50.",
+            "nome_curso.min" => "O mínimo de caracteres é 3",
+            "nome_curso.max" => "O máximo de caracteres é 200",
         ];
     }
     

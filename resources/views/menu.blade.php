@@ -37,6 +37,9 @@
           <li class="nav-item">
             <a class="nav-link" href="{{route('adm.listaServidor')}}">Servidores</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{route('adm.listaCurso')}}">Cursos</a>
+          </li>
         @endif
 
         @if(Auth::user()->tipo == 'administrador' || Auth::user()->tipo =='servidor')

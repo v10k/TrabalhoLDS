@@ -59,6 +59,14 @@ Route::get('/adm/professores/listarMinhasSolicitacoes',     ['as' => 'adm.listar
 Route::get('/adm/professores/solicitaEspaco',               ['as' => 'adm.solicitaEspaco', 'uses'               => 'AdmSolicitacaoController@solicitaEspaco'])->middleware('checkRoleProfessor');
 Route::post('/adm/professores/registraSolicitacao',         ['as' => 'adm.registraSolicitacao', 'uses'          => 'AdmSolicitacaoController@registraSolicitacao'])->middleware('checkRoleProfessor');
 
+//Cursos
+Route::get('/adm/cursos/formularioAdicionar',      ['as' => 'adm.formAddCurso', 'uses'    => 'AdmCursoController@addForm'])->middleware('checkRoleAdmin');
+Route::get('/adm/cursos/formularioAtualizar/{id}', ['as' => 'adm.formAttCurso', 'uses'    => 'AdmCursoController@updateForm'])->middleware('checkRoleAdmin');
+Route::post('/adm/cursos/adicionar',               ['as' => 'adm.adicionaCurso', 'uses'   => 'AdmCursoController@insert'])->middleware('checkRoleAdmin');
+Route::post('/adm/cursos/atualizar/{id}',          ['as' => 'adm.atualizaCurso', 'uses'   => 'AdmCursoController@update'])->middleware('checkRoleAdmin');
+Route::get('/adm/cursos/listar',                   ['as' => 'adm.listaCurso', 'uses'      => 'AdmCursoController@selectAll'])->middleware('checkRoleAdmin');
+Route::get('/adm/cursos/deletar/{id}',             ['as' => 'adm.deletaCurso', 'uses'     => 'AdmCursoController@delete'])->middleware('checkRoleAdmin');
+
 
 });
 
