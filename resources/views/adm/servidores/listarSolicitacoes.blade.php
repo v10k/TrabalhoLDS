@@ -42,8 +42,8 @@
                         <td>{{ $registro->data }}</td>
                         <td>{{ $registro->horario_inicio}}</td>
                         <td>{{ $registro->horario_final }}</td>
-                        <td><a class="btn btn-warning" href="aprovarSolicitacoes/{{$registro->id}}/aprovado">Aprovar</a></td>
-                        <td><a class="btn btn-danger"  href="aprovarSolicitacoes/{{$registro->id}}/reprovado">Reprovar</a></td>
+                        <td><a class="btn btn-warning" onClick="return confirm('Quer mesmo aprovar essa solicitação?')" href="aprovarSolicitacoes/{{$registro->id}}/aprovado">Aprovar</a></td>
+                        <td><a class="btn btn-danger"  onClick="return confirm('Quer mesmo reprovar essa solicitação?')"  href="aprovarSolicitacoes/{{$registro->id}}/reprovado">Reprovar</a></td>
                         @php $count++ @endphp
                     </tr>
                     @endforeach

@@ -39,7 +39,7 @@
                         <td>{{ $registro->nome }}</td>
                         <td>{{ $registro->email }}</td>
                         <td><a class="btn btn-warning" href="{{route('adm.formAttServidor', $registro->id)}}">Editar</a></td>
-                        <td><a class="btn btn-danger" href="{{route('adm.deletaServidor', $registro->id)}}">Deletar</a></td>
+                        <td><a class="btn btn-danger" onClick="return confirm('Quer mesmo deletar esse registro?')" href="{{route('adm.deletaServidor', $registro->id)}}">Deletar</a></td>
                     </tr>
                     @endforeach
                 </table>

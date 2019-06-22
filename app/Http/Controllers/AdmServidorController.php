@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Auth;
 use App\User;
-use App\Http\Controllers\Validacao;
 use Illuminate\Support\Facades\Hash;
 
 class AdmServidorController extends Controller
@@ -59,7 +58,8 @@ class AdmServidorController extends Controller
             'email' => $data['email'],
             'prontuario' => $data['prontuario'],
             'tipo' => $data['tipo'],
-            'password' => Hash::make($data['password']),
+            'password' => Hash::make('password', 
+            ['rounds' => 12]),
         ]);
     }
 }

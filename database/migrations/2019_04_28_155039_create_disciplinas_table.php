@@ -18,6 +18,7 @@ class CreateDisciplinasTable extends Migration
             $table->string('nome_disciplina');
             $table->integer('id_curso');
             $table->decimal('carga_horaria', 6, 2);
+            $table->integer('semestre');
             $table->timestamps();
         });
     }
